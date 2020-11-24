@@ -27,11 +27,10 @@ This app will allow MSU students to create accounts and enter in the classes the
 
 **Required Must-have Stories**
 
-* Users can create an account and login and logout of app 
-* Users can add the classes they are in to their account
-* Users can be put into groups with other students based on their classes and message all the students
-* Students can add their socials to their accounts
-* Students can view other students' socials
+* Users can create/edit an account and login and logout of app 
+* Users can add their socials to their accounts
+* Users can add their classes to their accounts
+* Students can view other students' socials based on classes they're in
 
 **Optional Nice-to-have Stories**
 
@@ -78,7 +77,6 @@ This app will allow MSU students to create accounts and enter in the classes the
 * Chat Screen
    * Class Screen
 * Profile Screen
-
     * Profile Edit Screen
 * Profile Edit Screen
     * Profile Screen
@@ -91,10 +89,87 @@ This app will allow MSU students to create accounts and enter in the classes the
 <img src="https://i.imgur.com/bfB37w7.jpg" width=600>
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+
+
+Model: User
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| objectId     | String     | unique id for user     |
+| userName | String | user's unique username |
+| firstName     | String     | user's first name    |
+| lastName     | String     | user's last name    |
+| password | String | user's password |
+| classes | Class [] | user's current classes |
+| socials | Social [] | user's current socials |
+| major | String | user's current major |
+| profilePicture | File | user's profile picture |
+| year | Number | user's current year |
+
+
+Model: Class
+
+| Property | Type    | Description|
+| -------- | -------- | -------- |
+| objectId     | String     | unique id for course     |
+| students     | User []     | students in the course     |
+| professor     | String     | proffesors for the class     |
+| department     | String     | department code (CSE)     |
+| courseNum | Number | course number |
+| section | Number | section of this course |
+| chat | Post [] | chats that come from this course |
+
+
+
+Model: Social
+
+| Property | Type     | Description |
+| -------- | -------- | --------    |
+|objectId     | String     | unique id for user    |
+|socialType     | String     | type of social media account  |
+|logo     | Image     | image for social  |
+|user     | pointer to User      | user that owns that social |
+|username | String | username of User |
+| link | String | link that directs you to that page |
+
+
+
+Model: Post
+
+| Property | Type     | Description |
+| -------- | -------- | --------    |
+| objectId     | String     | unique id for user    |
+| author   | Pointer to User    | author of this post    |
+| image    | File     |  image that the user posts |
+| caption    | String      | caption by author |
+| numLikes | Number | the number of likes this chat has gotten |
+| createdAt | DateTime | when the post was created |
+
+
+
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+* Registration Screen
+    * (Create/POST) Creating User profile
+* Class Screen
+    * (Read/GET) Fetches Classes' students list
+    * (Read/GET) Fetches User's socials list
+* Chat Screen
+    * (Create/ POST) Sending a new post
+    * (Delete/DELETE) Remove posts
+    * (Update/PUT) like a post
+    * (Read/GET) Fetches classes' posts
+* Profile Screen
+    * (Read/GET) Fetches User
+    * (Read/GET) Fetches User's socials list
+    * (Read/GET) Fetches User's class list
+* Profile Edit Screen
+    * (Update/PUT) User can update socials
+    * (Update/PUT) Users can update the classes that they are in
+    * (Update/PUT) Users can update the major
+    * (Update/PUT) Users can update profile image
+    * (Update/PUT) Users can update year
+* Courses Screen
+    * (Read/GET) Fetches users Class list
