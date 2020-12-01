@@ -27,14 +27,14 @@ This app will allow MSU students to create accounts and enter in the classes the
 
 **Required Must-have Stories**
 
-* Users can create/edit an account and login and logout of app 
-* Users can add their socials to their accounts
-* Users can add their classes to their accounts
-* Students can view other students' socials based on classes they're in
+* -[x] Users can create/edit an account and login and logout of app 
+* -[ ] Users can add their socials to their accounts
+* -[ ] Users can add their classes to their accounts
+* -[ ] Students can view other students' socials based on classes they're in
 
 **Optional Nice-to-have Stories**
 
-* Users can be put into groups with other students based on their classes and message all the students
+* -[ ] Users can be put into groups with other students based on their classes and message all the students
 
 ### 2. Screen Archetypes
 
