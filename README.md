@@ -173,3 +173,9 @@ Model: Post
     * (Update/PUT) Users can update year
 * Courses Screen
     * (Read/GET) Fetches users Class list
+    
+    ## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='http://g.recordit.co/RpQv8D8EOs.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
