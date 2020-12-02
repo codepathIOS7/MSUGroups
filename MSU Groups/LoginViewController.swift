@@ -12,11 +12,29 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     
     @IBOutlet weak var passwordField: UITextField!
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
+        
+        self.signInButton.layer.cornerRadius = 20
     }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     
     @IBAction func onSignIn(_ sender: Any) {
         let username = usernameField.text!
@@ -32,16 +50,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func inSignup(_ sender: Any) {
-        let user = PFUser()
-        user.username = usernameField.text
-        user.password = passwordField.text
-        user.signUpInBackground { (success, error) in
-            if success{
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            } else{
-                print("Error: \(error?.localizedDescription)")
-            }
-        }
+
+        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+
     }
     
     /*
