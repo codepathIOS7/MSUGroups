@@ -20,6 +20,31 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let query = PFQuery(className:"userInfo")
+        query.whereKey("author", equalTo:PFUser.current())
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if let error = error {
+                // Log details of the failure
+                print(error.localizedDescription)
+            } else if let objects = objects {
+                // The find succeeded.
+                //print("Successfully retrieved \(objects.count) scores.")
+                // Do something with the found objects
+                
+                
+                for object in objects {
+                    
+                    self.firstnameLabel.text = object["userfname"] as! String
+                    self.lastnameLabel.text = object["userlname"] as! String
+                    self.yearLabel.text = object["year"] as! String
+                    self.majorLabel.text = object["major"] as! String
+                    
+                }
+            }
+        }
+
 
         // Do any additional setup after loading the view.
     }
