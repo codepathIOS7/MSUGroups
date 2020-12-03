@@ -17,6 +17,10 @@ class FeedViewController: UIViewController {
     
     @IBOutlet weak var majorField: UITextField!
     
+    @IBOutlet weak var usernameField: UITextField!
+    
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
               
@@ -46,10 +50,25 @@ class FeedViewController: UIViewController {
     }
     */
     @IBAction func CreateAccountButton(_ sender: Any) {
-        let firstname = firstnameField.text
-        let lastname = lastnameField.text
-        let year = yearField.text
-        let major = majorField.text
+        
+        let userInfo = PFObject(className:"userInfo")
+        userInfo["userfname"] = firstnameField.text!
+        userInfo["userlname"] = lastnameField.text!
+        userInfo["major"] = majorField.text!
+        userInfo["year"] = yearField.text!
+        
+        //userInfo["author"] = PFUser.current()!
+
+        userInfo.saveInBackground {
+          (success: Bool, error: Error?) in
+          if (success) {
+            // The object has been saved.
+            print("saved")
+          } else {
+            print("error")
+            // There was a problem, check error.description
+          }
+        }
     }
     
 }
