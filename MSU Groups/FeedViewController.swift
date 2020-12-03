@@ -51,13 +51,16 @@ class FeedViewController: UIViewController {
     */
     @IBAction func CreateAccountButton(_ sender: Any) {
         
+        
+        
         let userInfo = PFObject(className:"userInfo")
         userInfo["userfname"] = firstnameField.text!
         userInfo["userlname"] = lastnameField.text!
         userInfo["major"] = majorField.text!
         userInfo["year"] = yearField.text!
         
-        //userInfo["author"] = PFUser.current()!
+        userInfo["author"] = PFUser.current()!
+        
 
         userInfo.saveInBackground {
           (success: Bool, error: Error?) in
