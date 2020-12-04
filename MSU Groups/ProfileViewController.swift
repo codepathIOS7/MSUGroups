@@ -27,14 +27,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        let firstName = PFUser.current()?["firstName"] as! String
-        let lastName = PFUser.current()?["lastName"] as! String
-        let fullName = firstName + " " + lastName
-        
-        nameLabel.text = fullName
-        
-        
-        
         // Do any additional setup after loading the view.
     }
     
@@ -51,9 +43,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.profileImage.image = image
             }
         }
+        let firstName = PFUser.current()?["firstName"] as! String
+        let lastName = PFUser.current()?["lastName"] as! String
+        let fullName = firstName + " " + lastName
+        
+        nameLabel.text = fullName
         
         yearLabel.text = PFUser.current()?["year"] as? String
-        
         majorLabel.text = PFUser.current()?["major"] as? String
         
         self.tableView.reloadData()
@@ -62,12 +58,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func onLogoutButton(_ sender: Any) {
         PFUser.logOut()
         
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+        self.performSegue( withIdentifier: "unwindToLogin", sender: nil)
         
-        let sceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+//
+//        let sceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+//
+//        sceneDelegate.window?.rootViewController = loginViewController
         
-        sceneDelegate.window?.rootViewController = loginViewController
     }
     /*
     // MARK: - Navigation
@@ -80,22 +79,26 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let socials = PFUser.current()?["socials"] as! [PFObject]? {
-            print("printing....")
-            return socials.count
-        }
-        print("no socials")
-        return 0
+        let socials = (PFUser.current()?["socials"] as? [PFObject]) ?? []
+        return socials.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SocialViewCell") as! SocialViewCell
         
-        let socials = PFUser.current()?["socials"] as! [PFObject]?
+        let socials = (PFUser.current()?["socials"] as? [PFObject]) ?? []
+        let social = socials[indexPath.row]
+        let id = social.objectId as! String
         
-        let social = socials?[indexPath.row]
-        
-        cell.linkLabel.text = social!["username"] as! String
+        let query = PFQuery(className:"Social")
+        query.getObjectInBackground(withId: id) { (socialGot, error) in
+            if error == nil {
+                cell.linkLabel.text = socialGot?["socialUsername"] as! String
+            } else {
+                print("Error retrieving username")
+            }
+        }
         
         
         
