@@ -17,22 +17,14 @@ class FeedViewController: UIViewController {
     
     @IBOutlet weak var majorField: UITextField!
     
+    @IBOutlet weak var usernameField: UITextField!
+    
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-              
-        //Looks for single or multiple taps.
-         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-
-        view.addGestureRecognizer(tap)
-    }
-
-    //Calls this function when the tap is recognized.
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+        // Do any additional setup after loading the view.
     }
     
 
@@ -46,10 +38,28 @@ class FeedViewController: UIViewController {
     }
     */
     @IBAction func CreateAccountButton(_ sender: Any) {
-        let firstname = firstnameField.text
-        let lastname = lastnameField.text
-        let year = yearField.text
-        let major = majorField.text
+        
+        
+        
+        let userInfo = PFObject(className:"userInfo")
+        userInfo["userfname"] = firstnameField.text!
+        userInfo["userlname"] = lastnameField.text!
+        userInfo["major"] = majorField.text!
+        userInfo["year"] = yearField.text!
+        
+        userInfo["author"] = PFUser.current()!
+        
+
+        userInfo.saveInBackground {
+          (success: Bool, error: Error?) in
+          if (success) {
+            // The object has been saved.
+            print("saved")
+          } else {
+            print("error")
+            // There was a problem, check error.description
+          }
+        }
     }
     
 }
