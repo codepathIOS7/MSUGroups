@@ -100,7 +100,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         
-        
+        let imageString = cell.getSocialImage()
+        let image = UIImage(named: imageString)
+        cell.socialLogo.image = image
         
         return cell
     }

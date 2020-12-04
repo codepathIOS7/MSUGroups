@@ -8,8 +8,8 @@
 import UIKit
 
 class SocialViewCell: UITableViewCell {
-    @IBOutlet weak var socialImage: UIView!
     
+    @IBOutlet weak var socialLogo: UIImageView!
     @IBOutlet weak var linkLabel: UILabel!
     
     override func awakeFromNib() {
@@ -21,6 +21,10 @@ class SocialViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func getSocialImage() -> String {
+        return "Ghost Logo - Primary.png"
     }
 
 }

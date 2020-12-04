@@ -293,7 +293,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="linkLabel" destination="z9e-Eu-vja" id="d1P-v3-0Ex"/>
-                                            <outlet property="socialImage" destination="Lmp-ra-8MY" id="XSy-Aj-Uea"/>
+                                            <outlet property="socialLogo" destination="AJc-6o-5Mv" id="LMS-aJ-zfC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
