@@ -32,26 +32,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func inSignup(_ sender: Any) {
-<<<<<<< HEAD
-        
-        let user = PFUser()
-        user.username = usernameField.text!
-        user.password = passwordField.text!
-        
-        user.signUpInBackground {(success, error) in
-            if success {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            } else {
-                print("error")
-            }
-            
-        }
-        
-        
 
-        
-
-=======
         let user = PFUser()
         user.username = usernameField.text
         user.password = passwordField.text
@@ -62,7 +43,6 @@ class LoginViewController: UIViewController {
                 print("Error: \(error?.localizedDescription)")
             }
         }
->>>>>>> parent of f12aaa0... Made design changes to login screen, got rid of bounds, added keyboard dismissal
     }
     
     /*
