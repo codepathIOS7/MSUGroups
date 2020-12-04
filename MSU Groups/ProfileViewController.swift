@@ -8,45 +8,55 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
-
-    @IBOutlet weak var firstnameLabel: UILabel!
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var lastnameLabel: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var yearLabel: UILabel!
     
     @IBOutlet weak var majorLabel: UILabel!
     
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        let query = PFQuery(className:"userInfo")
-        query.whereKey("author", equalTo:PFUser.current())
-        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+        let firstName = PFUser.current()?["firstName"] as! String
+        let lastName = PFUser.current()?["lastName"] as! String
+        let fullName = firstName + " " + lastName
+        
+        nameLabel.text = fullName
+        
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let file = PFUser.current()?["profileImage"] as? PFFileObject
+        
+        file?.getDataInBackground { (imageData: Data?, error: Error?) in
             if let error = error {
-                // Log details of the failure
                 print(error.localizedDescription)
-            } else if let objects = objects {
-                // The find succeeded.
-                //print("Successfully retrieved \(objects.count) scores.")
-                // Do something with the found objects
-                
-                
-                for object in objects {
-                    
-                    self.firstnameLabel.text = object["userfname"] as! String
-                    self.lastnameLabel.text = object["userlname"] as! String
-                    self.yearLabel.text = object["year"] as! String
-                    self.majorLabel.text = object["major"] as! String
-                    
-                }
+            } else if let imageData = imageData {
+                let image = UIImage(data: imageData)
+                self.profileImage.image = image
             }
         }
-
-
-        // Do any additional setup after loading the view.
+        
+        yearLabel.text = PFUser.current()?["year"] as? String
+        
+        majorLabel.text = PFUser.current()?["major"] as? String
+        
+        self.tableView.reloadData()
     }
 
     @IBAction func onLogoutButton(_ sender: Any) {
@@ -68,5 +78,28 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let socials = PFUser.current()?["socials"] as! [PFObject]? {
+            print("printing....")
+            return socials.count
+        }
+        print("no socials")
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SocialViewCell") as! SocialViewCell
+        
+        let socials = PFUser.current()?["socials"] as! [PFObject]?
+        
+        let social = socials?[indexPath.row]
+        
+        cell.linkLabel.text = social!["username"] as! String
+        
+        
+        
+        return cell
+    }
 
 }

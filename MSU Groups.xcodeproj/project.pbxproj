@@ -20,6 +20,7 @@
 		B18B88802572E1340028B7E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B887F2572E1340028B7E5 /* ProfileViewController.swift */; };
 		DA31C9A40A8BFEE655082215 /* Pods_MSU_Groups.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925D217ED1BEA9E4A94AD8D5 /* Pods_MSU_Groups.framework */; };
 		E1CAFCA84F952BC921E58013 /* Pods_MSU_GroupsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF8A83E3BA16C4E234AB082 /* Pods_MSU_GroupsTests.framework */; };
+		E8FB46212579C9E7005ABCF7 /* SocialViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB46202579C9E7005ABCF7 /* SocialViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		B18B886B25719BFA0028B7E5 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B18B887F2572E1340028B7E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C9BC7E06C97EF3D2B6F1A284 /* Pods-MSU GroupsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSU GroupsTests.release.xcconfig"; path = "Target Support Files/Pods-MSU GroupsTests/Pods-MSU GroupsTests.release.xcconfig"; sourceTree = "<group>"; };
+		E8FB46202579C9E7005ABCF7 /* SocialViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				B18B886525719BD00028B7E5 /* LoginViewController.swift */,
 				B18B886B25719BFA0028B7E5 /* FeedViewController.swift */,
 				B18B887F2572E1340028B7E5 /* ProfileViewController.swift */,
+				E8FB46202579C9E7005ABCF7 /* SocialViewCell.swift */,
 			);
 			path = "MSU Groups";
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				B18B88802572E1340028B7E5 /* ProfileViewController.swift in Sources */,
 				B18B886C25719BFA0028B7E5 /* FeedViewController.swift in Sources */,
 				B18B883225719B450028B7E5 /* SceneDelegate.swift in Sources */,
+				E8FB46212579C9E7005ABCF7 /* SocialViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75HA8F86T8;
 				INFOPLIST_FILE = "MSU Groups/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -613,6 +618,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75HA8F86T8;
 				INFOPLIST_FILE = "MSU Groups/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
