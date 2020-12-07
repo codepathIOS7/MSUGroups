@@ -89,20 +89,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let socials = (PFUser.current()?["socials"] as? [PFObject]) ?? []
         let social = socials[indexPath.row]
-        let id = social.objectId as! String
+        let id = social.objectId!
         
+        // Find social media account within database
         let query = PFQuery(className:"Social")
         query.getObjectInBackground(withId: id) { (socialGot, error) in
             if error == nil {
-                cell.linkLabel.text = socialGot?["socialUsername"] as! String
+                cell.linkLabel.text = (socialGot?["socialUsername"] as! String)
+                // Get image from type of social media
+                let type = socialGot?["type"] as! String
+                let imageString = cell.getSocialImage(socialName: type)
+                let image = UIImage(named: imageString)
+                cell.socialLogo.image = image
+
             } else {
-                print("Error retrieving username")
+                print("Error retrieving social account")
             }
         }
-        
-        let imageString = cell.getSocialImage()
-        let image = UIImage(named: imageString)
-        cell.socialLogo.image = image
         
         return cell
     }
