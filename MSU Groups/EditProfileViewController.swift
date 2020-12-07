@@ -27,11 +27,7 @@ class EditProfileViewController: UIViewController {
         let user = PFUser.current
         user()!["major"] = majorTextField.text
         user()!["year"] = yearTextField.text
-      //  let profile = PFObject(className:"Profile")
-      //  profile["major"] = majorTextField.text
-       // profile["year"] = yearTextField.text
-
-        // Saves the new object.
+    
         user()!.saveInBackground {
           (success: Bool, error: Error?) in
           if (success) {

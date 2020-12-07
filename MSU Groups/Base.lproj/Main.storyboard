@@ -468,12 +468,41 @@
             </objects>
             <point key="canvasLocation" x="2882" y="382"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="VV8-m8-LLo">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="8iq-9N-heJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oJa-8G-wcQ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8NH-HA-d8x">
+                                <rect key="frame" x="82" y="674" width="227" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Confirm Changes">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3j3-g3-Qah" kind="presentation" id="2Cs-Qx-ODJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iDc-Om-IJP"/>
+                        <color key="backgroundColor" red="0.10699690985925414" green="0.10699690985925414" blue="0.10699690985925414" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OSc-cR-NIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3898" y="74"/>
+        </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="6af-QY-HCe">
             <objects>
-                <viewController id="4cv-eq-1p8" customClass="EditProfileViewController" customModule="MSU_Groups" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="4cv-eq-1p8" customClass="EditProfileViewController" customModule="MSU_Groups" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HwH-mB-p8Z">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzO-Rg-bww">
@@ -505,6 +534,9 @@
                                 <state key="normal" title="Add/ Remove Classes">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8iq-9N-heJ" kind="presentation" id="P18-sb-lHN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQO-TE-Uo0">
                                 <rect key="frame" x="99" y="525" width="207" height="39"/>
@@ -514,6 +546,9 @@
                                 <state key="normal" title="Edit Profile Picture">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="dvG-dU-O0s" kind="presentation" id="zV2-HZ-PP1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zez-M8-9bK">
                                 <rect key="frame" x="99" y="336" width="42" height="27"/>
@@ -556,6 +591,59 @@
             </objects>
             <point key="canvasLocation" x="2921.5384615384614" y="-334.12322274881512"/>
         </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="wo7-PA-iFt">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="dvG-dU-O0s" customClass="PhotoViewController" customModule="MSU_Groups" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oOR-DG-moW">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKe-kW-yuE">
+                                <rect key="frame" x="99" y="620" width="197" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Choose Picture">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onChoosePicture:" destination="dvG-dU-O0s" eventType="touchUpInside" id="coC-4j-czf"/>
+                                    <segue destination="3j3-g3-Qah" kind="presentation" id="TfT-Ui-drl"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Anq-Wq-JbV">
+                                <rect key="frame" x="16" y="208" width="358" height="294"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="a3o-jj-YS0" appends="YES" id="gE5-Js-j6y"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click Above" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvW-MX-okw">
+                                <rect key="frame" x="115" y="540" width="164" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2S5-o1-KK5"/>
+                        <color key="backgroundColor" red="0.11521022835957639" green="0.11521022835957639" blue="0.11521022835957639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Anq-Wq-JbV" id="y06-w5-jSp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Or3-Yr-umz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="a3o-jj-YS0">
+                    <connections>
+                        <action selector="onCameraButton:" destination="dvG-dU-O0s" id="49X-y0-lZF"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3933.8461538461538" y="-672.51184834123217"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="S3Z-x4-e6l">
             <objects>
@@ -597,7 +685,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="bVY-Ye-fk2"/>
-        <segue reference="3r3-4t-8zJ"/>
+        <segue reference="TfT-Ui-drl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="android-chrome-512x512" width="512" height="512"/>

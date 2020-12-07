@@ -10,6 +10,7 @@
 		08E9C802CC6599C2C62BEECE /* Pods_MSU_Groups_MSU_GroupsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2B9E190A571FC361A081D5 /* Pods_MSU_Groups_MSU_GroupsUITests.framework */; };
 		6C58965B257DDAB7005DFE73 /* EditSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58965A257DDAB7005DFE73 /* EditSocialViewController.swift */; };
 		B15BAC0C257EBF78000E5789 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15BAC0B257EBF78000E5789 /* EditProfileViewController.swift */; };
+		B15BAC11257ED858000E5789 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15BAC10257ED858000E5789 /* PhotoViewController.swift */; };
 		B18B883025719B450028B7E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B882F25719B450028B7E5 /* AppDelegate.swift */; };
 		B18B883225719B450028B7E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B883125719B450028B7E5 /* SceneDelegate.swift */; };
 		B18B883725719B450028B7E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18B883525719B450028B7E5 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		A5AF62D2D514BE3945C2EEB5 /* Pods-MSU GroupsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSU GroupsTests.debug.xcconfig"; path = "Target Support Files/Pods-MSU GroupsTests/Pods-MSU GroupsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF2B9E190A571FC361A081D5 /* Pods_MSU_Groups_MSU_GroupsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSU_Groups_MSU_GroupsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15BAC0B257EBF78000E5789 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		B15BAC10257ED858000E5789 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		B18B882C25719B450028B7E5 /* MSU Groups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MSU Groups.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18B882F25719B450028B7E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18B883125719B450028B7E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				E8FB46202579C9E7005ABCF7 /* SocialViewCell.swift */,
 				6C58965A257DDAB7005DFE73 /* EditSocialViewController.swift */,
 				B15BAC0B257EBF78000E5789 /* EditProfileViewController.swift */,
+				B15BAC10257ED858000E5789 /* PhotoViewController.swift */,
 			);
 			path = "MSU Groups";
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				B18B883025719B450028B7E5 /* AppDelegate.swift in Sources */,
 				B18B88802572E1340028B7E5 /* ProfileViewController.swift in Sources */,
 				B18B886C25719BFA0028B7E5 /* FeedViewController.swift in Sources */,
+				B15BAC11257ED858000E5789 /* PhotoViewController.swift in Sources */,
 				B18B883225719B450028B7E5 /* SceneDelegate.swift in Sources */,
 				E8FB46212579C9E7005ABCF7 /* SocialViewCell.swift in Sources */,
 				6C58965B257DDAB7005DFE73 /* EditSocialViewController.swift in Sources */,
