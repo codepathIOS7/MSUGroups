@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3j3-g3-Qah">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -353,10 +353,10 @@
             </objects>
             <point key="canvasLocation" x="1793.8461538461538" y="7.8199052132701414"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Social View Controller-->
         <scene sceneID="iKm-4o-Ain">
             <objects>
-                <viewController id="chh-yN-oEE" sceneMemberID="viewController">
+                <viewController id="chh-yN-oEE" customClass="EditSocialViewController" customModule="MSU_Groups" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQy-nK-xZr">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -428,6 +428,10 @@
                                 <state key="normal" title="Save Changes">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSaveButton:" destination="chh-yN-oEE" eventType="touchUpInside" id="ORb-3H-aR0"/>
+                                    <action selector="onSaveButton:" destination="6kT-yu-vhR" eventType="touchUpInside" id="Sid-fD-fzM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Socials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jay-YP-CVZ">
                                 <rect key="frame" x="133" y="104" width="163" height="36"/>
@@ -446,8 +450,16 @@
                         <viewLayoutGuide key="safeArea" id="zta-5P-9SO"/>
                         <color key="backgroundColor" red="0.11990608136678482" green="0.11990608136678482" blue="0.11990608136678482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="githubTextField" destination="e7T-Xd-vna" id="BJt-bl-Sdd"/>
+                        <outlet property="instaTextField" destination="XpM-dg-b5M" id="Rfl-vb-Tt2"/>
+                        <outlet property="linkedinTextField" destination="Fpk-f7-Oca" id="Z6b-cU-UdT"/>
+                        <outlet property="snapTextField" destination="3XJ-7r-dbi" id="J1V-rL-LEC"/>
+                        <outlet property="twitterTextField" destination="H8A-Em-u5X" id="djO-mt-c1k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oS2-W5-5dg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6kT-yu-vhR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2882" y="382"/>
         </scene>

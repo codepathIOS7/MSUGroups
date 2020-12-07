@@ -43,6 +43,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.profileImage.image = image
             }
         }
+        
         let firstName = PFUser.current()?["firstName"] as! String
         let lastName = PFUser.current()?["lastName"] as! String
         let fullName = firstName + " " + lastName
@@ -85,6 +86,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SocialViewCell") as! SocialViewCell
         
         let socials = (PFUser.current()?["socials"] as? [PFObject]) ?? []
@@ -109,5 +112,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return cell
     }
+    
 
+    
 }
