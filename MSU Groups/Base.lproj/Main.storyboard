@@ -351,7 +351,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9G-w1-4H1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="GPc-aV-ghw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1793.8461538461538" y="7.8199052132701414"/>
+            <point key="canvasLocation" x="1763" y="239"/>
         </scene>
         <!--Edit Social View Controller-->
         <scene sceneID="iKm-4o-Ain">
@@ -466,7 +466,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oS2-W5-5dg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="6kT-yu-vhR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2882" y="382"/>
+            <point key="canvasLocation" x="2842" y="653"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VV8-m8-LLo">
@@ -495,7 +495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSc-cR-NIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3898" y="74"/>
+            <point key="canvasLocation" x="4615" y="-147"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="6af-QY-HCe">
@@ -589,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5j-Lu-OpR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921.5384615384614" y="-334.12322274881512"/>
+            <point key="canvasLocation" x="3194" y="-486"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="wo7-PA-iFt">
@@ -642,7 +642,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3933.8461538461538" y="-672.51184834123217"/>
+            <point key="canvasLocation" x="2046" y="-697"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S3Z-x4-e6l">
@@ -685,7 +685,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="bVY-Ye-fk2"/>
-        <segue reference="TfT-Ui-drl"/>
+        <segue reference="3r3-4t-8zJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="android-chrome-512x512" width="512" height="512"/>
