@@ -28,7 +28,7 @@ This app will allow MSU students to create accounts and enter in the classes the
 **Required Must-have Stories**
 
 * -[x] Users can create/edit an account and login and logout of app 
-* -[ ] Users can add their socials to their accounts
+* -[x] Users can add their socials to their accounts
 * -[ ] Users can add their classes to their accounts
 * -[ ] Students can view other students' socials based on classes they're in
 
