@@ -178,4 +178,8 @@ Model: Post
 
 Here's a walkthrough of implemented user stories:
 
+### Milestone 1:
 <img src='http://g.recordit.co/RpQv8D8EOs.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+### Milestone 2:
+<img src='http://g.recordit.co/DCHxOyHzaD.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
