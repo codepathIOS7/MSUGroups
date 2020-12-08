@@ -25,16 +25,21 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func onChoosePicture(_ sender: Any) {
         let user = PFUser.current
         let imageData = imageView.image?.pngData()
-        let file = PFFileObject(data: imageData!)
-        user()!["profileImage"] = file
-    
-        user()!.saveInBackground {
-          (success: Bool, error: Error?) in
-          if (success) {
-            print("Success!!")
-          } else {
-            print("Error!!")
-          }
+        if imageView.image == nil {
+           // myTextField is not empty here
+            print("Image view is empty")
+        }else{
+            let file = PFFileObject(data: imageData!)
+            user()!["profileImage"] = file
+        
+            user()!.saveInBackground {
+              (success: Bool, error: Error?) in
+              if (success) {
+                print("Success!!")
+              } else {
+                print("Error!!")
+              }
+            }
         }
     }
     
@@ -43,8 +48,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         picker.delegate = self
         picker.allowsEditing = true
         
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
-            picker.sourceType = .camera
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            picker.sourceType = .savedPhotosAlbum
         }else{
             picker.sourceType = .photoLibrary
         }
