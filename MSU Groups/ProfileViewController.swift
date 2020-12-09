@@ -61,6 +61,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.performSegue( withIdentifier: "unwindToLogin", sender: nil)
         
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
+        
 //        let main = UIStoryboard(name: "Main", bundle: nil)
 //        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
 //

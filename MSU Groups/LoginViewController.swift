@@ -37,6 +37,11 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
+            self.performSegue(withIdentifier: "signinSegue", sender: nil)
+        }
+    }
     
     @IBAction func onSignIn(_ sender: Any) {
         let username = emailField.text!
@@ -44,6 +49,7 @@ class LoginViewController: UIViewController {
         
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             if user != nil {
+                UserDefaults.standard.set(true, forKey: "userLoggedIn")
                 self.performSegue(withIdentifier: "signinSegue", sender: nil)
             }else{
                 print("Error: \(error?.localizedDescription)")
