@@ -23,6 +23,8 @@
 		B18B88802572E1340028B7E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B887F2572E1340028B7E5 /* ProfileViewController.swift */; };
 		DA31C9A40A8BFEE655082215 /* Pods_MSU_Groups.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925D217ED1BEA9E4A94AD8D5 /* Pods_MSU_Groups.framework */; };
 		E1CAFCA84F952BC921E58013 /* Pods_MSU_GroupsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF8A83E3BA16C4E234AB082 /* Pods_MSU_GroupsTests.framework */; };
+		E838ACCE25808165001AFA1C /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E838ACCD25808165001AFA1C /* CoursesViewController.swift */; };
+		E838ACDB258082D0001AFA1C /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E838ACDA258082D0001AFA1C /* CourseCell.swift */; };
 		E8FB46212579C9E7005ABCF7 /* SocialViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB46202579C9E7005ABCF7 /* SocialViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		B18B886B25719BFA0028B7E5 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B18B887F2572E1340028B7E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C9BC7E06C97EF3D2B6F1A284 /* Pods-MSU GroupsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSU GroupsTests.release.xcconfig"; path = "Target Support Files/Pods-MSU GroupsTests/Pods-MSU GroupsTests.release.xcconfig"; sourceTree = "<group>"; };
+		E838ACCD25808165001AFA1C /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		E838ACDA258082D0001AFA1C /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		E8FB46202579C9E7005ABCF7 /* SocialViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +158,8 @@
 				6C58965A257DDAB7005DFE73 /* EditSocialViewController.swift */,
 				B15BAC0B257EBF78000E5789 /* EditProfileViewController.swift */,
 				B15BAC10257ED858000E5789 /* PhotoViewController.swift */,
+				E838ACCD25808165001AFA1C /* CoursesViewController.swift */,
+				E838ACDA258082D0001AFA1C /* CourseCell.swift */,
 			);
 			path = "MSU Groups";
 			sourceTree = "<group>";
@@ -427,12 +433,14 @@
 				B15BAC0C257EBF78000E5789 /* EditProfileViewController.swift in Sources */,
 				B18B886625719BD00028B7E5 /* LoginViewController.swift in Sources */,
 				B18B883025719B450028B7E5 /* AppDelegate.swift in Sources */,
+				E838ACDB258082D0001AFA1C /* CourseCell.swift in Sources */,
 				B18B88802572E1340028B7E5 /* ProfileViewController.swift in Sources */,
 				B18B886C25719BFA0028B7E5 /* FeedViewController.swift in Sources */,
 				B15BAC11257ED858000E5789 /* PhotoViewController.swift in Sources */,
 				B18B883225719B450028B7E5 /* SceneDelegate.swift in Sources */,
 				E8FB46212579C9E7005ABCF7 /* SocialViewCell.swift in Sources */,
 				6C58965B257DDAB7005DFE73 /* EditSocialViewController.swift in Sources */,
+				E838ACCE25808165001AFA1C /* CoursesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

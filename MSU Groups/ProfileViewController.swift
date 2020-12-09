@@ -27,26 +27,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        let file = PFUser.current()?["profileImage"] as? PFFileObject
-        
-        file?.getDataInBackground { (imageData: Data?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let imageData = imageData {
-                let image = UIImage(data: imageData)
-                self.profileImage.image = image
-            }
-        }
-        
-        let firstName = PFUser.current()?["firstName"] as! String
-        let lastName = PFUser.current()?["lastName"] as! String
-        let fullName = firstName + " " + lastName
-        
-        nameLabel.text = fullName
-        
-        yearLabel.text = PFUser.current()?["year"] as? String
-        majorLabel.text = PFUser.current()?["major"] as? String
-        
         self.tableView.reloadData()
         
         
