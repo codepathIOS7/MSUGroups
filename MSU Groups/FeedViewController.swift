@@ -153,6 +153,7 @@ class FeedViewController: UIViewController {
               if (success) {
                 // The object has been saved.
                 print("saved")
+                self.performSegue(withIdentifier: "signupSegue", sender: nil)
               } else {
                 print("error")
                 // There was a problem, check error.description
