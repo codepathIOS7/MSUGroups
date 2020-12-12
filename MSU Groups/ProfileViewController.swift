@@ -150,6 +150,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Instagram currently not supported, add in another commit
         var imageString : String
         switch socialName {
+        case "Instagram":
+            imageString = "Icon-60.png"
         case "Snapchat":
             imageString = "Ghost Logo - Primary.png"
         case "Linkedin":
