@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import Parse
 
 class CoursesViewController: UIViewController,
                              UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var codeBar: UISearchBar!
+    
+    @IBOutlet weak var numberBar: UISearchBar!
+    
+    var courses = [PFObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +25,13 @@ class CoursesViewController: UIViewController,
         tableView.delegate = self
         tableView.dataSource = self
         
-        let textFieldInsideSearchBar = self.searchBar.value(forKey: "searchField") as? UITextField
+        let textCodeBar = self.codeBar.value(forKey: "searchField") as? UITextField
 
-        textFieldInsideSearchBar?.textColor = UIColor.white
+        textCodeBar?.textColor = UIColor.white
+        
+        let textNumberBar = self.numberBar.value(forKey: "searchField") as? UITextField
+
+        textNumberBar?.textColor = UIColor.white
               
         //Looks for single or multiple taps.
          let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -41,6 +50,31 @@ class CoursesViewController: UIViewController,
         view.endEditing(true)
     }
     
+    @IBAction func onSearchButton(_ sender: Any) {
+        
+        let query = PFQuery(className: "Course")
+        query.includeKeys(["code", "number"])
+        
+        let courseCode = self.codeBar.text! as String
+        let courseNum = Int(self.numberBar.text!) ?? 0
+        
+        
+        if courseNum != 0 {
+            query.whereKey("number", equalTo: courseNum)
+        }
+        query.whereKey("code", equalTo: courseCode)
+        
+        query.findObjectsInBackground { (courses, error) in
+            if let error = error {
+                print("Error: \(String(describing: error.localizedDescription))")
+            } else {
+                self.courses = courses ?? []
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    
 
     /*
     // MARK: - Navigation
@@ -53,11 +87,20 @@ class CoursesViewController: UIViewController,
     */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseCell
+        let course = courses[indexPath.row]
+        
+        let code = course["code"] as! String
+        
+        let num = course["number"] as! NSNumber
+        
+        let numString = num.stringValue
+        
+        cell.classCode.text = code + " " + numString
         
         return cell
     }

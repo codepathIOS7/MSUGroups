@@ -26,6 +26,7 @@
 		E838ACCE25808165001AFA1C /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E838ACCD25808165001AFA1C /* CoursesViewController.swift */; };
 		E838ACDB258082D0001AFA1C /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E838ACDA258082D0001AFA1C /* CourseCell.swift */; };
 		E838ACE025809601001AFA1C /* AddSocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E838ACDF25809601001AFA1C /* AddSocialCell.swift */; };
+		E8D27C8125849D380075DFB0 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D27C8025849D380075DFB0 /* SectionCell.swift */; };
 		E8FB46212579C9E7005ABCF7 /* SocialViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FB46202579C9E7005ABCF7 /* SocialViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		E838ACCD25808165001AFA1C /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		E838ACDA258082D0001AFA1C /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		E838ACDF25809601001AFA1C /* AddSocialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSocialCell.swift; sourceTree = "<group>"; };
+		E8D27C8025849D380075DFB0 /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		E8FB46202579C9E7005ABCF7 /* SocialViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 				E838ACCD25808165001AFA1C /* CoursesViewController.swift */,
 				E838ACDA258082D0001AFA1C /* CourseCell.swift */,
 				E838ACDF25809601001AFA1C /* AddSocialCell.swift */,
+				E8D27C8025849D380075DFB0 /* SectionCell.swift */,
 			);
 			path = "MSU Groups";
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				B18B886625719BD00028B7E5 /* LoginViewController.swift in Sources */,
 				B18B883025719B450028B7E5 /* AppDelegate.swift in Sources */,
 				E838ACDB258082D0001AFA1C /* CourseCell.swift in Sources */,
+				E8D27C8125849D380075DFB0 /* SectionCell.swift in Sources */,
 				B18B88802572E1340028B7E5 /* ProfileViewController.swift in Sources */,
 				B18B886C25719BFA0028B7E5 /* FeedViewController.swift in Sources */,
 				B15BAC11257ED858000E5789 /* PhotoViewController.swift in Sources */,

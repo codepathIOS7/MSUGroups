@@ -36,20 +36,13 @@ class LoginViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
-            self.performSegue(withIdentifier: "signinSegue", sender: nil)
-        }
-    }
-    
+        
     @IBAction func onSignIn(_ sender: Any) {
         let username = emailField.text!
         let password = passwordField.text!
         
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             if user !=   nil {
-                UserDefaults.standard.set(true, forKey: "userLoggedIn")
                 self.performSegue(withIdentifier: "signinSegue", sender: nil)
             }else{
                 print("Error: \(error?.localizedDescription)")

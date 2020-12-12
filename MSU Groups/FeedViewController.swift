@@ -111,33 +111,16 @@ class FeedViewController: UIViewController {
             user.password = passwordField.text
             user["firstName"] = firstnameField.text
             user["lastName"] = lastnameField.text
-            user["socials"] = [PFObject]()
             
-            // Temporary - delete later
-            let social = PFObject(className:"Social")
+            //user.add(social, forKey: "socials")
 
-            social["type"] = "Snapchat"
-            social["socialUsername"] = "zacharyarnold"
-
-            // Saves the new object.
-            social.saveInBackground {
-              (success: Bool, error: Error?) in
-              if (success) {
-                print("Success!!")
-              } else {
-                print("Error!!")
-              }
-            }
-            
-            user.add(social, forKey: "socials")
-
-            user.saveInBackground { (success, error) in
-                if success {
-                    print("Social saved")
-                } else {
-                    print("Error saving social")
-                }
-            }
+//            user.saveInBackground { (success, error) in
+//                if success {
+//                    print("Social saved")
+//                } else {
+//                    print("Error saving social")
+//                }
+//            }
             
 //            if var userSocials = user["socials"] as? [PFObject] {
 //                userSocials.append(social)

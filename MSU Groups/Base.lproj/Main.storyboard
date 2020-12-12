@@ -297,24 +297,6 @@
                                             <outlet property="socialLogo" destination="AJc-6o-5Mv" id="LMS-aJ-zfC"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddSocialCell" id="0oP-Iq-Z6P" customClass="AddSocialCell" customModule="MSU_Groups" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="390" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0oP-Iq-Z6P" id="hto-7t-Ymk">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="blz-2Q-Sjb">
-                                                    <rect key="frame" x="44" y="7" width="47" height="47"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="socialImage" destination="blz-2Q-Sjb" id="24N-32-aU1"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVW-uO-lrg">
@@ -350,18 +332,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="chh-yN-oEE" kind="presentation" id="PcM-yj-Xjy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihn-ui-jU1">
-                                <rect key="frame" x="16" y="669" width="133" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="22"/>
-                                <state key="normal" title="Add Social...">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onAddSocial:" destination="3j3-g3-Qah" eventType="touchUpInside" id="w6y-nD-4xf"/>
+                                    <segue destination="chh-yN-oEE" kind="presentation" identifier="toEditSocials" id="THp-fj-Vut"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -413,15 +384,31 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="classCode" destination="9gN-qI-GkK" id="fDv-vd-OaN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionCell" rowHeight="59" id="EiK-E6-Tbv" customClass="SectionCell" customModule="MSU_Groups" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140" width="390" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EiK-E6-Tbv" id="27h-Ja-esI">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Section 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAf-LE-zkd">
+                                                    <rect key="frame" x="101" y="8" width="93" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="25"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="section" destination="mAf-LE-zkd" id="K9b-T5-zO4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search for courses..." translatesAutoresizingMaskIntoConstraints="NO" id="zlA-MV-G18">
-                                <rect key="frame" x="0.0" y="115" width="390" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" red="0.11866775979999999" green="0.11866775979999999" blue="0.11866775979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N39-Ej-A9n">
                                 <rect key="frame" x="16" y="48" width="358" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -429,13 +416,37 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Code" translatesAutoresizingMaskIntoConstraints="NO" id="ZLy-wP-slN">
+                                <rect key="frame" x="9" y="109" width="130" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.11866775979999999" green="0.11866775979999999" blue="0.11866775979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxB-fz-C14">
+                                <rect key="frame" x="306" y="112" width="68" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="23"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSearchButton:" destination="g1j-cl-HbI" eventType="touchUpInside" id="dq8-ug-Jdm"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Number" translatesAutoresizingMaskIntoConstraints="NO" id="zlA-MV-G18">
+                                <rect key="frame" x="156" y="109" width="130" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.11866775979999999" green="0.11866775979999999" blue="0.11866775979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DrO-dz-hU8"/>
                         <color key="backgroundColor" red="0.11866775979999999" green="0.11866775979999999" blue="0.11866775979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Courses" image="graduationcap" catalog="system" id="NFr-nW-YEw"/>
                     <connections>
-                        <outlet property="searchBar" destination="zlA-MV-G18" id="p9j-Bx-myz"/>
+                        <outlet property="codeBar" destination="ZLy-wP-slN" id="SO4-f6-ssv"/>
+                        <outlet property="numberBar" destination="zlA-MV-G18" id="EUE-lF-SP3"/>
                         <outlet property="tableView" destination="j66-VM-YaH" id="LKD-M2-71J"/>
                     </connections>
                 </viewController>
@@ -446,9 +457,9 @@
         <!--Edit Social View Controller-->
         <scene sceneID="iKm-4o-Ain">
             <objects>
-                <viewController id="chh-yN-oEE" customClass="EditSocialViewController" customModule="MSU_Groups" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="chh-yN-oEE" customClass="EditSocialViewController" customModule="MSU_Groups" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQy-nK-xZr">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagram:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tt-uN-Gs8">
@@ -528,7 +539,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Socials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jay-YP-CVZ">
-                                <rect key="frame" x="133" y="104" width="163" height="36"/>
+                                <rect key="frame" x="114" y="105" width="163" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -541,6 +552,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouy-f6-aIB">
+                                <rect key="frame" x="26" y="44" width="46" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MuktaMahee-Bold" family="Mukta Mahee" pointSize="22"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBackButton:" destination="chh-yN-oEE" eventType="touchUpInside" id="bMz-X4-JYc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zta-5P-9SO"/>
                         <color key="backgroundColor" red="0.11990608136678482" green="0.11990608136678482" blue="0.11990608136678482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -549,14 +571,16 @@
                         <outlet property="githubTextField" destination="e7T-Xd-vna" id="BJt-bl-Sdd"/>
                         <outlet property="instaTextField" destination="XpM-dg-b5M" id="Rfl-vb-Tt2"/>
                         <outlet property="linkedinTextField" destination="Fpk-f7-Oca" id="Z6b-cU-UdT"/>
+                        <outlet property="saveButton" destination="gjO-cj-Q68" id="UeL-IC-Wtc"/>
                         <outlet property="snapTextField" destination="3XJ-7r-dbi" id="J1V-rL-LEC"/>
                         <outlet property="twitterTextField" destination="H8A-Em-u5X" id="djO-mt-c1k"/>
+                        <segue destination="6kT-yu-vhR" kind="unwind" identifier="unwindToProfile" unwindAction="unwind:" id="sDX-hF-0eY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oS2-W5-5dg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="6kT-yu-vhR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4593.8461538461534" y="-208.29383886255923"/>
+            <point key="canvasLocation" x="5648" y="-191"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VV8-m8-LLo">

@@ -1,15 +1,16 @@
 //
-//  CourseCell.swift
+//  SectionCell.swift
 //  MSU Groups
 //
-//  Created by Zach Arnold on 12/8/20.
+//  Created by Zach Arnold on 12/12/20.
 //
 
 import UIKit
 
-class CourseCell: UITableViewCell {
+class SectionCell: UITableViewCell {
 
-    @IBOutlet weak var classCode: UILabel!
+    @IBOutlet weak var section: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

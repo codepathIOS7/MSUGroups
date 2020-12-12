@@ -8,23 +8,16 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    var socialType : String = ""
-    var AddingSocial = false
-    var toolBar = UIToolbar()
-    var picker  = UIPickerView()
-    let socialList = ["Snapchat", "Linkedin", "Twitter", "Instagram", "Github", "Facebook"]
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var yearLabel: UILabel!
-    
     @IBOutlet weak var majorLabel: UILabel!
-    
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
+    
+    var socials = [PFObject]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +27,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
-        // call the 'keyboardWillShow' function when the view controller receive the notification that a keyboard is going to be shown
-//        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-      
-          // call the 'keyboardWillHide' function when the view controlelr receive notification that keyboard is going to be hidden
-//        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         self.tableView.reloadData()
         
@@ -62,24 +48,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-//    @objc func keyboardWillShow(notification: NSNotification) {
-//
-//        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-//           // if keyboard size is not available for some reason, dont do anything
-//           return
-//        }
-//
-//      // move the root view up by the distance of keyboard height
-//      self.view.frame.origin.y = 0 - keyboardSize.height
-//    }
-//
-//    @objc func keyboardWillHide(notification: NSNotification) {
-//      // move back the root view origin to zero
-//      self.view.frame.origin.y = 0
-//    }
-    
-    
-    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,46 +68,82 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let lastName = PFUser.current()?["lastName"] as! String
         let fullName = firstName + " " + lastName
         
-        nameLabel.text = fullName
+        self.nameLabel.text = fullName
         
-        yearLabel.text = PFUser.current()?["year"] as? String
-        majorLabel.text = PFUser.current()?["major"] as? String
+        self.yearLabel.text = PFUser.current()?["year"] as? String
+        self.majorLabel.text = PFUser.current()?["major"] as? String
+        let user = PFUser.current()! as PFObject
+        print(user["year"] as! String)
+        self.socials = (user["socials"] as? [PFObject]) ?? []
+        
+        
+        
         
         self.tableView.reloadData()
     }
 
     @IBAction func onLogoutButton(_ sender: Any) {
+//        // Temporary - delete later
+//        let social = PFObject(className:"Social")
+//
+//        social["type"] = "Snapchat"
+//        social["socialUsername"] = "colearnold04"
+//        social["owner"] = PFUser.current()
+//
+//        // Saves the new object.
+//        social.saveInBackground {
+//          (success: Bool, error: Error?) in
+//          if (success) {
+//            print("Success!!")
+//          } else {
+//            print("Error!!")
+//          }
+//        }
+//
+//        PFUser.current()?.add(social, forKey: "socials")
+//
+//        PFUser.current()?.saveInBackground { (success, error) in
+//            if success {
+//                print("Social saved")
+//            } else {
+//                print("Error saving social")
+//            }
+//        }
+        
         PFUser.logOut()
         
         self.performSegue( withIdentifier: "unwindToLogin", sender: nil)
         
-        UserDefaults.standard.set(false, forKey: "userLoggedIn")
-        
-//        let main = UIStoryboard(name: "Main", bundle: nil)
-//        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
-//
-//        let sceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
-//
-//        sceneDelegate.window?.rootViewController = loginViewController
-        
+ 
     }
-    /*
-    // MARK: - Navigation
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let socials = (PFUser.current()?["socials"] as? [PFObject]) ?? []
-        if self.AddingSocial {
-            return socials.count + 1
-        }
-        return socials.count
+        return self.socials.count
     }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SocialViewCell") as! SocialViewCell
+        
+        self.socials[indexPath.row].fetchIfNeededInBackground { (social, error) in
+            if social != nil {
+                cell.linkLabel.text = (social?["socialUsername"] as! String)
+                let socialType = social?["type"] as! String
+                cell.socialLogo.image = self.getSocialImage(socialName: socialType)
+            } else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
+        }
+        
+        return cell
+    }
+    
     
     // Using social media type, return string of image name
     func getSocialImage(socialName: String) -> UIImage {
@@ -162,85 +166,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let image = UIImage(named: imageString)
         return image!
     }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let socials = (PFUser.current()?["socials"] as? [PFObject]) ?? []
-        
-        if indexPath.row < socials.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SocialViewCell") as! SocialViewCell
-            
-            let social = socials[indexPath.row]
-            let id = social.objectId!
-            
-            // Find social media account within database
-            let query = PFQuery(className:"Social")
-            query.getObjectInBackground(withId: id) { (socialGot, error) in
-                if error == nil {
-                    cell.linkLabel.text = (socialGot?["socialUsername"] as! String)
-                    // Get image from type of social media
-                    let type = socialGot?["type"] as! String
-                    let image = self.getSocialImage(socialName: type)
-                    cell.socialLogo.image = image
 
-                } else {
-                    print("Error retrieving social account")
-                }
-            }
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AddSocialCell")!
-            
-            return cell
-        }
-        
-        
-    }
     
-
-    @IBAction func onAddSocial(_ sender: Any) {
-        self.AddingSocial = true
-        picker = UIPickerView.init()
-        picker.delegate = self
-        picker.dataSource = self
-        picker.backgroundColor = UIColor.white
-        picker.setValue(UIColor.black, forKey: "textColor")
-        picker.autoresizingMask = .flexibleWidth
-        picker.contentMode = .center
-        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-        self.view.addSubview(picker)
-                
-
-        
-        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.barStyle = .blackTranslucent
-        toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
-        self.view.addSubview(toolBar)
-        self.tableView.reloadData()
-    }
-    
-    @objc func onDoneButtonTapped() {
-
-        toolBar.removeFromSuperview()
-        picker.removeFromSuperview()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-        
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return socialList.count
-    }
-        
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return socialList[row]
-    }
-        
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.socialType = socialList[row]
-    }
     
 }
