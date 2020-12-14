@@ -183,3 +183,6 @@ Here's a walkthrough of implemented user stories:
 
 ### Milestone 2:
 <img src='http://g.recordit.co/DCHxOyHzaD.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+### Milestone 3:
+<img src='http://g.recordit.co/THVQ4ZZs0D.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
